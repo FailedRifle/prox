@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GhostProxy</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="browser">
+    <!-- Browser Chrome -->
+    <div class="toolbar">
+      <div class="nav-buttons">
+        <button id="btn-back" title="Back">&#8592;</button>
+        <button id="btn-forward" title="Forward">&#8594;</button>
+        <button id="btn-reload" title="Reload">&#8635;</button>
+      </div>
+
+      <form id="nav-form" class="url-bar-wrap">
+        <div class="url-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        <input
+          id="url-input"
+          type="text"
+          placeholder="Search or enter a URL..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button type="submit" id="go-btn">Go</button>
+      </form>
+
+      <div class="toolbar-right">
+        <button id="btn-home" title="Home">&#8962;</button>
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content-wrap">
+      <div id="home-screen" class="home-screen">
+        <div class="home-inner">
+          <div class="logo">
+            <div class="logo-icon">👻</div>
+            <h1>GhostProxy</h1>
+            <p>Browse freely. Leave no trace.</p>
+          </div>
+
+          <div class="quick-links">
+            <h3>Quick Links</h3>
+            <div class="link-grid">
+              <a class="quick-link" href="#" data-url="https://www.google.com">
+                <span class="ql-icon">🔍</span>Google
+              </a>
+              <a class="quick-link" href="#" data-url="https://www.youtube.com">
+                <span class="ql-icon">▶️</span>YouTube
+              </a>
+              <a class="quick-link" href="#" data-url="https://www.reddit.com">
+                <span class="ql-icon">🟠</span>Reddit
+              </a>
+              <a class="quick-link" href="#" data-url="https://www.tiktok.com">
+                <span class="ql-icon">🎵</span>TikTok
+              </a>
+              <a class="quick-link" href="#" data-url="https://www.twitter.com">
+                <span class="ql-icon">🐦</span>Twitter
+              </a>
+              <a class="quick-link" href="#" data-url="https://www.wikipedia.org">
+                <span class="ql-icon">📖</span>Wikipedia
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <iframe
+        id="proxy-frame"
+        class="proxy-frame hidden"
+        sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-modals"
+        allowfullscreen
+      ></iframe>
+
+      <div id="loading-bar" class="loading-bar hidden"></div>
+      <div id="error-screen" class="error-screen hidden">
+        <div class="error-inner">
+          <div class="error-icon">⚠️</div>
+          <h2>Could not load page</h2>
+          <p id="error-msg">The site could not be reached.</p>
+          <button id="error-retry">Try Again</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="status-bar">
+      <span id="status-text">Ready</span>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
